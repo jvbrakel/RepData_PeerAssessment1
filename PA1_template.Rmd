@@ -38,7 +38,6 @@ hist (total_steps_by_date$total_steps,
 Calculate and report the mean and median of the total number of steps taken per day
 ```{r}
 mean_of_steps <- (mean(total_steps_by_date$total_steps))
-
 median_of_steps <- (median(total_steps_by_date$total_steps))
 ```
 
@@ -101,25 +100,20 @@ hist (total_steps_by_date_filled_in$total_steps, main ="Histogram of total Daily
 Calculate and report the mean and median of the total number of steps taken per day
 ```{r}
 mean_of_steps_filled_in <- (mean(total_steps_by_date_filled_in$total_steps))
-# format mean
-#mean_of_steps_filled_in <- format(mean_of_steps_filled_in,digits = 2 )
 
 median_of_steps_filled_in <- (median(total_steps_by_date_filled_in$total_steps))
-# format median
-#median_of_steps_filled_in <- format(median_of_steps_filled_in,digits = 2 )
 ```
 
-The mean for total steps taken per day is `r mean_of_steps_filled_in`.  
-The median for total steps taken per day is `r median_of_steps_filled_in`.
+The mean for total steps taken per day is `r format(mean_of_steps_filled_in,digits = 2 )`.  
+The median for total steps taken per day is `r format(median_of_steps_filled_in,digits = 2 )`.
 
 Impact of filling in the missing values :
 ```{r}
 variance_mean<- mean_of_steps_filled_in  - mean_of_steps
-# format mean
 variance_median<- median_of_steps_filled_in  - median_of_steps
 ```
-The variance in mean for total steps taken per day is `r variance_mean`.  
-The variance in median for total steps taken per day is `r variance_median`.
+The variance in mean for total steps taken per day is `r format(variance_mean,digits = 2 )`.  
+The variance in median for total steps taken per day is `r format(variance_median,digits = 2 )`.
 
 The overall impact of imputing missing data on the estimates of the total daily number of steps changed the Median slightly, however the mean did not change
 
@@ -129,6 +123,7 @@ Created a new factor variable in the dataset with two levels – “weekday” a
 
 ```{r fig.align='center'}
 library(lubridate)
+#convert field to Date
 filled_in_activity$date <-  as.Date(filled_in_activity$date,format="%Y-%m-%d")
 
 # create variable and set the detaul to 'Weekday'

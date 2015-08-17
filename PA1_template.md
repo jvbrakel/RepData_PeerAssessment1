@@ -39,7 +39,6 @@ Calculate and report the mean and median of the total number of steps taken per 
 
 ```r
 mean_of_steps <- (mean(total_steps_by_date$total_steps))
-
 median_of_steps <- (median(total_steps_by_date$total_steps))
 ```
 
@@ -113,26 +112,21 @@ Calculate and report the mean and median of the total number of steps taken per 
 
 ```r
 mean_of_steps_filled_in <- (mean(total_steps_by_date_filled_in$total_steps))
-# format mean
-#mean_of_steps_filled_in <- format(mean_of_steps_filled_in,digits = 2 )
 
 median_of_steps_filled_in <- (median(total_steps_by_date_filled_in$total_steps))
-# format median
-#median_of_steps_filled_in <- format(median_of_steps_filled_in,digits = 2 )
 ```
 
-The mean for total steps taken per day is 1.0766189\times 10^{4}.  
-The median for total steps taken per day is 1.0766189\times 10^{4}.
+The mean for total steps taken per day is 10766.  
+The median for total steps taken per day is 10766.
 
 Impact of filling in the missing values :
 
 ```r
 variance_mean<- mean_of_steps_filled_in  - mean_of_steps
-# format mean
 variance_median<- median_of_steps_filled_in  - median_of_steps
 ```
 The variance in mean for total steps taken per day is 0.  
-The variance in median for total steps taken per day is 1.1886792.
+The variance in median for total steps taken per day is 1.2.
 
 The overall impact of imputing missing data on the estimates of the total daily number of steps changed the Median slightly, however the mean did not change
 
@@ -143,6 +137,7 @@ Created a new factor variable in the dataset with two levels – “weekday” a
 
 ```r
 library(lubridate)
+#convert field to Date
 filled_in_activity$date <-  as.Date(filled_in_activity$date,format="%Y-%m-%d")
 
 # create variable and set the detaul to 'Weekday'
